@@ -1,0 +1,24 @@
+<div class="item">
+    <div class="item-thumb">
+        <a ng-href="watch/{{item.id}}/{{item.title}}" title="{{item.overview}}">
+            <img ng-src="{{domain.image + item.poster_path}}" alt="{{item.overview}}">
+        </a>
+    </div>
+    <div class="item-description">
+        <h4><a ng-href="watch/{{item.id}}/{{item.title}}" title="{{item.overview}}" class="medialink">{{item.overview}}</a></h4>
+    </div>
+    <div class="item-genre">
+        <h4>{{item.genre_ids | convertgenre}}</a></h4>
+    </div>
+    <div class="item-statistic">
+        <span class="vote_average">{{item.vote_average | number:0}} views</span>
+        <span class="vote_count">{{item.vote_count | number:0}} views</span>
+    </div>
+</div>
+
+
+<!--    <div class="mediaauthor">
+        <a  ng-href="user/{{video.snippet.channelId}}/{{video.snippet.channelTitle}}">by {{video.snippet.channelTitle | cut:true:10:' ...'}}
+            <span class="time">{{video.snippet.publishedAt | timeAgo}}</span>
+        </a>
+    </div>-->

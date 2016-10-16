@@ -1,0 +1,29 @@
+.main-block{
+  display: flex;
+  flex-wrap: wrap;
+  .main-block-label{
+
+  }
+  .main-block-items{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+      .main-block-items-block{
+        flex-basis: 18%;
+        .item{
+
+          .item-description{
+            font-size: 12px;
+            display: -webkit-box!important;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            -webkit-line-clamp: 2;
+            color: #008aff;
+          }
+        }
+
+      }
+  }
+}

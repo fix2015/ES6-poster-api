@@ -7,6 +7,41 @@ var storage = angular.module('tmdb', [])
     "IMG_URL": 'http://image.tmdb.org/'
 })
 
+    .service('tmdbGenre', ['TMDB', '$http', function (TMDB, $http) {
+        this.movieList = function (params, onSuccess, onError) {
+            console.log(params)
+            var paramString = '';
+            for (var p in params) {
+                paramString = paramString + '&' + p + '=' + params[p];
+            }
+            var url = TMDB.API_URL + 'genre/movie/list?api_key=' + TMDB.API_KEY + paramString;
+            $http.get(url).
+            success(function (data, status, headers, config) {
+                if (onSuccess !== undefined)
+                    onSuccess(data, status, headers, config);
+            }).
+            error(function (data, status, headers, config) {
+                if (onError !== undefined)
+                    onError(data, status, headers, config);
+            });
+        },
+        this.getListMovieByGenre = function (params, onSuccess, onError) {
+            var paramString = '';
+            for (var p in params) {
+                paramString = paramString + '&' + p + '=' + params[p];
+            }
+            var url = TMDB.API_URL + 'genre/'+params.id+'/movies?api_key=' + TMDB.API_KEY +paramString;
+            $http.get(url).
+            success(function (data, status, headers, config) {
+                if (onSuccess !== undefined)
+                    onSuccess(data, status, headers, config);
+            }).
+            error(function (data, status, headers, config) {
+                if (onError !== undefined)
+                    onError(data, status, headers, config);
+            });
+        }
+    }])
     .service('tmdbMovie', ['TMDB', '$http', function (TMDB, $http) {
     this.search = function (title, params, onSuccess, onError) {
         var paramString = '';

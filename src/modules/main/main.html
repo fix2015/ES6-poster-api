@@ -1,6 +1,10 @@
-<div>
-    <p>
-        {{main}}
-    </p>
+<div class="main-block">
+    <div class="main-block-label">{{nameOfQuery}}</div>
+    <button ng-click="getCollection()">Click</button>
+    <div class="main-block-items" infinite-scroll='load.loadMore()' infinite-scroll-distance='2'>
+        <div ng-repeat="item in collections track by $index" class="main-block-items-block">
+            <item data="item"></item>
+        </div>
+    </div>
 </div>
 
