@@ -24,6 +24,7 @@ angular.module('content')
         }
 
         return{
+            details: details,
             getDetails: getDetails,
             addDetails: addDetails,
             removeDetails: removeDetails,

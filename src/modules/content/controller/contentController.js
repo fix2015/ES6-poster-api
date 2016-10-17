@@ -3,8 +3,8 @@
  */
 angular.module('content')
     .controller('contentController',
-        ['$scope', '$state', 'contentServices', 'contentFactory',
-            function($scope, $state, contentServices, contentFactory){
+        ['$scope', '$rootScope', '$state', 'contentServices', 'contentFactory',
+            function($scope, $rootScope, $state, contentServices, contentFactory){
                 var id = $state.params.id;
                 contentFactory.removeDetails()
                     .then(()=>{
@@ -15,7 +15,6 @@ angular.module('content')
                                 contentFactory.addDetails(data);
                             })
                     })
-
                     .then(()=>{
                         contentServices.getImages(id)
                             .then((data)=>{
@@ -24,7 +23,6 @@ angular.module('content')
                                 contentFactory.addDetails(data)
                             })
                     })
-
                     .then(()=>{
                         contentServices.getVideos(id)
                             .then((data)=>{
@@ -33,7 +31,6 @@ angular.module('content')
                                 contentFactory.addDetails(data)
                             })
                     })
-
                     .then(()=>{
                         contentServices.getRecommendations(id)
                             .then((data)=>{
@@ -44,6 +41,10 @@ angular.module('content')
                                 }
                                 contentFactory.addDetails(recommendations)
                             })
+                    })
+                    .then(()=>{
+
+                        $scope.filmData = contentFactory.getDetails();
                     })
 
             }
