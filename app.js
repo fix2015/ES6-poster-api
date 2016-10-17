@@ -1,4 +1,8 @@
-angular.module('angularApp', ['ui.router','navbar', 'search', 'tmdb', 'broadcast', 'main','infinite-scroll'])
+angular.module('angularApp', ['ui.router','navbar', 'search', 'tmdb', 'broadcast', 'main','infinite-scroll', 'content'])
+    .run((tmdbMovie)=>{
+        // setup for API
+        tmdbMovie.setup('009a3e07367c027e7b6d8ef1ab8f8117', false);
+    })
     .constant('domain', {
         'image': 'https://image.tmdb.org/t/p/w500/'
     })

@@ -1,0 +1,33 @@
+<section>
+    <div class="section-film">
+        <img ng-src="{{domain.image + filmData.backdrop_path}}"/>
+        <img ng-src="{{domain.image + filmData.poster_path}}"/>
+        <div>{{filmData.overview}}</div>
+        <div>{{filmData.original_title}}</div>
+        <div>{{filmData.release_date}}</div>
+        <div>{{filmData.title}}</div>
+        <div>{{filmData.vote_average}}</div>
+    </div>
+    <ul>
+        <li ng-repeat="poster in filmData.posters">
+            <img ng-src="{{domain.image + poster.file_path}}"/>
+        </li>
+    </ul>
+    <div class="section-comment"></div>
+</section>
+<aside>
+    <div class="aside-film">
+        <ul>
+            <li ng-repeat="recomandVideo in filmData.recommendations">
+                <span>{{recomandVideo.original_title}}</span>
+                <span>{{recomandVideo.overview}}</span>
+                <span>{{recomandVideo.popularity}}</span>
+                <span>{{recomandVideo.release_date}}</span>
+                <span>{{recomandVideo.title}}</span>
+                <span>{{recomandVideo.vote_average}}</span>
+                <img ng-src="{{domain.image + recomandVideo.poster_path}}"/>
+                <img ng-src="{{domain.image + recomandVideo.file_path}}"/>
+            </li>
+        </ul>
+    </div>
+</aside>

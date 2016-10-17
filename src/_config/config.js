@@ -21,4 +21,9 @@ angular.module('angularApp')
                 templateUrl : 'public/templates/home.html',
                 controller  : 'searchController'
             })
+            .state('watch', {
+                url         : '/watch/:id/:title',
+                templateUrl : 'public/templates/content.html',
+                controller  : 'contentController'
+            })
     }]);

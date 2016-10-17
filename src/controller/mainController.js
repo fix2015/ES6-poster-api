@@ -14,9 +14,6 @@ angular.module('angularApp')
             $scope.page = 1;
             $scope.currentCollections = filmCollectionFactory.getCollections();
 
-            // setup for API
-            tmdbMovie.setup('009a3e07367c027e7b6d8ef1ab8f8117', false);
-
             // Get list by genre film
             var getListMovieByGenre = (id, page)=>{
                 return new Promise((resolve, reject) => {
